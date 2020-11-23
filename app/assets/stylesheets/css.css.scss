@@ -1,0 +1,103 @@
+@import 'colors';
+
+body 
+{
+background: url(back.jpg) ;
+  background-attachment: fixed;
+ // background: url(../images/header_bg.png) repeat-x;
+//background-position: fixed;
+  //background-color: #d1dcf0;
+//background-color: #c9cdd0;
+
+}
+.day1 {
+//background-image: url(day11.jpg) ;
+  
+ width:268px;
+ height:500px;
+}
+.fifty {
+
+	//width: 400px;
+}
+.block {
+
+	border: 2px solid #dee2e6;
+}
+
+#error{
+	width: 640px;
+//	background-color: #d1dcf0;
+	color: rgba(255, 51, 0, 0.603);
+
+}
+#form{
+	padding-left: 10px;
+	//width: 650px;
+//	background-color: #d1dcf0;
+}
+.flash {
+  color: $primary-text-color;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  //box-shadow: #ffc 0 0 4px;
+  
+  &.notice {
+    color: red;
+   // background-color: $flash-notice-color;
+  }
+
+  &.alert {
+    color:red
+   // background-color: $flash-alert-color;
+  }
+}
+
+
+
+
+.leftt{
+	padding-left: 10px;
+
+}
+
+.star{
+
+  display: inline-block;
+}
+.bold{
+ font-size: larger;
+ font-weight: bold;
+}
+.field_with_errors label{
+
+  color:red;
+}
+
+.sign_menu{
+ 
+position:relative;
+top: -54px;
+float:right;
+right: 10px;
+text-transform: capitalize;
+}
+
+.white{
+  color:white;
+}
+
+#sidebar{
+//float: right;
+  //padding-top:5px;
+  //padding-right: 10px;
+}
+
+
+#ccolor{
+color: #11AAFF
+
+}

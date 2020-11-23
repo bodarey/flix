@@ -1,0 +1,19 @@
+@import 'colors';
+#page-header{
+text-color:blue;
+background-color: $grey_color;
+ text-align: center;
+ text-transform: uppercase;
+border-bottom:3px solid darken($grey_color, 20%)
+}
+
+#page-footer{
+text-align: center;
+
+}
+
+#sidebar{
+float: right;
+
+
+}

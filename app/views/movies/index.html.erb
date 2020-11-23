@@ -1,0 +1,37 @@
+
+
+
+
+<h1 class='leftt'><%= pluralize @movies.count,'Movie' unless current_page?(root_path)%></h1>
+
+  <div class='container-fluid'>
+<% @movies.each do |movie| %><br/>
+<div class='row'>
+	<div class='col-sm-5'>
+		<%= tag('hr')  unless movie==Movie.first %>
+<h3><%= link_to movie.title, movie_path(movie) %><br/></h3>
+<%= movie.description %><br/>
+<%= total_gross movie %><br/>
+<ul>
+<% movie.recent_reviews.each do |review|%>
+<%=pluralize(review.stars,'star' ) %><br/>
+<li>
+<%=review.user.name  %><br/>
+<%=review.comment %><br/>
+<%= time_ago review %> <br/>
+</li>
+<%end%>
+</ul>
+<p><%= pluralize(movie.reviews.count,'review') %> </p>
+<%= link_to "Reviews", movie_reviews_path(movie)%> 
+<br/>
+</div>
+<div class=' col-md-1 order-xs-first'><br/><%= image movie %>  </div>
+</div>
+<% end %>
+
+</div>
+<%= render 'footer' %>
+
+
+

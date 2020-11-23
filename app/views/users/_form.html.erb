@@ -1,0 +1,40 @@
+
+<div class="container-fluid" >
+		<%= render 'shared/errors',object: @user  %>
+	<div class="row">
+		
+	<div class=" col-md-6    d-none d-md-block" style="text-align: right;">
+			<%= image_tag 'day11.jpg' %>
+	</div>
+
+
+<div class=" col-12 col-md-6 d-flex justify-content-center justify-content-md-start" style="align-self: center" >
+
+<%= form_for(@user) do |f|%>
+<br/>
+<table>
+<tr><td><%= f.label :name %></td></tr>
+<tr><td><%= f.text_field :name %></td></tr>
+<tr><td><%= f.label :username %></td></tr>
+<tr><td><%= f.text_field :username %></td></tr>
+<tr><td><%= f.label :email %></td></tr>
+<tr><td><%= f.email_field :email %></td></tr>
+<tr><td><%= f.label :password %></td></tr>
+<tr><td><%= f.password_field :password %></td></tr>
+<tr><td><%= f.label :password_confirmation, 'Confirm Password' %></td></tr>
+<tr><td><%= f.password_field :password_confirmation %></td></tr>
+
+<%if @user.new_record?%>
+<tr><td>&nbsp;</td></tr>
+<tr><td><%=f.submit 'Create Account'%></td></tr>
+<%else%>
+<tr><td><%=f.submit 'Update Account'%></td></tr>
+<%end%>
+
+</table>
+<% end %>
+</div>
+</div>
+
+
+	</div>

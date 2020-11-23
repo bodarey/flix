@@ -1,0 +1,28 @@
+<p><%= @user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	<%= profile_created @user %></p>
+<p><%= mail_to(@user.email) %></p>
+<br/>
+<br/>
+<% @reviews.each do |review| %>
+ <%=  link_to review.movie.title, review.movie %> <br/>
+ <%=  pluralize review.stars, 'star' %> <br/>
+ <%= time_ago_in_words review.created_at %> <br/>
+ <%= review.comment %>
+<hr>
+<% end %>
+<br/>
+<% if current_user? @user %>
+<%= link_to "Edit Account",edit_user_path(@user) %> |
+<%= link_to 'Delete Account',@user, method: 'delete', data: {confirm: 'do you want to delete?'} %>
+<% end %>
+<!--  content for side bar-->
+<% content_for(:side) do %>
+      <h5 id='ccolor'>Favorite Movies</h5>	
+      <ul>
+  <% @favorite_movies.each do |movie| %>
+     <li><%= link_to movie.title,movie %></li>
+  <% end %>
+</ul>
+<% end %>
+<!-- title for the page -->
+<% content_for(:title,@user.name)%>

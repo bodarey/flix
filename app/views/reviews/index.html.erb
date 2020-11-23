@@ -1,0 +1,25 @@
+
+<ol id='review'>
+<h1><%= @movie.title %></h1><br/>
+
+	<% @reviews.each do |review| %>
+	<li>
+
+<%=link_to( review.user.name, user_path(review.user))  %></br>
+<%=pluralize(review.stars,'star' ) %></br>
+<%=review.comment %></br>
+<%= time_ago review %> <br/>
+
+</li>
+
+<% if current_user? review.user%>
+<%= link_to 'edit',edit_movie_review_path(@movie,review) %> &nbsp;&nbsp;&nbsp;
+<%= link_to 'delete',movie_review_path(@movie,review), method: 'delete', data: {confirm: 'do you want to delete?'} %>
+<% end %>
+<hr>
+<% end %>
+<%= pluralize(@movie.reviews.count,'review') %> 
+</ol>
+<%= link_to("Write Review",new_movie_review_path(@movie)) %> <br/>
+<hr>
+

@@ -1,0 +1,98 @@
+<div id='form'>
+<article>
+    <header>
+      <h1><%= @movie.title %></h1>
+    </header>
+    <p class='movie'><%= image @movie %></p>
+        <h2>Description</h2>
+        <p>
+          <%= @movie.description %>
+    </p>
+    
+
+          <h2>Director</h2>
+    <p>
+      <%= @movie.director %>
+    </p>
+          <h2>cast</h2>
+    <p>
+      <%= @movie.cast %>
+    </p>
+          <h2>Duration</h2>
+    <p>
+      <%= @movie.duration %>
+    </p>
+          <h3>Rating</h3>
+    <p>
+      <%= @movie.raiting %>
+    </p>
+   
+          <h3>Number of fans</h3>
+    <p>
+    <p>
+      <%= pluralize @fans.size, 'fan' %>
+    </p>
+    <p>
+      <% if current_user %>
+        <% unless @current_favorite %>
+          
+        <%= button_to "Fave",movie_favorites_path(@movie),class:'btn btn-info'%>
+          <% else %> 
+          <%= button_to "Unfave",movie_favorite_path(@movie,@current_favorite),method: :delete,class:'btn btn-info'%>
+           <% end %>
+      <% end %>
+    </p>
+
+    <h3>Released On</h3>
+    <p>
+      <%= @movie.released_on %>
+    </p>
+            <h3>Total Gross</h3>
+    <p>
+      <%= total_gross @movie  %>
+    </p>
+</article>
+          <h3>Average Review</h3>
+<p>
+  <%= format_average_stars(@movie) %>
+</p>
+<p>
+  <%= show_numb_of_reviews_big_then_zero @movie %> </p>
+<br/>
+  <% if current_user_admin? %>
+  <%= link_to 'Edit',edit_movie_path(@movie), class: 'btn btn-success' %>
+  <%= link_to 'Delete',@movie, method: 'delete',class: 'btn btn-success', data: {confirm: 'do you want to delete?'} %>
+  <% end %>
+<br/><br/>
+<%= render 'footer' %>
+</div>
+  <%= link_to("Create Review",new_movie_review_path(@movie)) %> |
+  <%= link_to  'all reviews for the movie', movie_reviews_path(@movie) %>
+<br/>
+<p>
+<i>&nbsp; Add a review:</i> </p>
+
+<%= render 'reviews/form_review', object: @review %>
+<!-- show in the sidebar html section -->
+ <% content_for(:side) do %>
+  
+    <h2><%= "Fans:" if @fans.any? %></h2>
+    <ul>
+       <% @fans.each do |user| %>
+       <li><%= user.name %></li>
+       <% end %>
+    </ul>
+        <h3><%= "Genres:" if @genres.any? %></h3>
+    <ul>
+    <% @genres.each do |genre| %>
+        <li><%= link_to genre.name, genre %></li>
+    <% end %>
+    </ul>
+  
+  <% end %>
+
+<!--  title for the page title-->
+  <% content_for(:title,"#{@movie.title}(#{@movie.released_on.year})") %>
+
+
+  

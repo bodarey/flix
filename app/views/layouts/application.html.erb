@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' 'defer' %>
+   
+
+  </head >
+
+   <body >
+   
+   
+     <div class='container-fluid'>
+        <div class='row'>  
+            <div class='col-md-12'> 
+             <%= render 'layouts/header' %>
+            </div>
+        </div>
+          <div class='row'> 
+             <div class='col-sm-12'> <%= render 'layouts/flash' %>
+             </div>
+         </div>
+        <div class='row'>
+          <div class='col-sm-10' style='border-right: 1px solid white;'> 
+            <%= yield %>
+            <br/>
+          </div>
+          <div class='col-sm-2'><%= render 'layouts/sidebar' %></div>
+        </div>
+           <%= render 'layouts/footer' %>
+        
+    </div>
+  </body>
+</html>
+

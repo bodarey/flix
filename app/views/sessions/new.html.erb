@@ -1,0 +1,45 @@
+
+<div class="container-fluid">
+	<div class="row">
+		
+<div class=" col-md-6    d-none d-md-block" style="text-align: right;">
+	<%= image_tag 'day11.jpg' %>
+
+	</div>
+
+
+<div class=" col-12 col-md-6 d-flex justify-content-center justify-content-md-start" style="align-self: center" >
+
+
+	<%= form_tag(session_path) do %>
+<fieldset>
+	Login by username or e-mail:<br/>
+<p>
+	<%= label_tag :email %><br/>
+	<%= email_field_tag :email,nil,autofocus: true %>
+</p>
+
+<p>
+	<%= label_tag :username %><br/>
+	<%= text_field_tag :username,nil %>
+</p>
+<p>
+	<%= label_tag :password %><br/>
+	<%= password_field_tag :password,required:true %>
+</p>
+<br/>
+<p><%= submit_tag 'Sign In' %></p>
+
+</fieldset>
+<% end %>
+
+<%= link_to("Sign Up", signup_path ) %>
+
+
+
+</div>
+</div>
+
+
+	</div>
+

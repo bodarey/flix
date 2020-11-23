@@ -1,0 +1,13 @@
+<div id='form'>
+<%= render 'shared/errors',object: @genre  %>
+
+<%= form_for(@genre) do |f| %>
+<fieldset>
+	<ol>
+<%= f.label :name %><br/>
+<%= f.text_field :name, autofocus: true %><br/>
+<%= f.submit %>
+</ol> 
+</fieldset>
+<% end %> 
+</div> 

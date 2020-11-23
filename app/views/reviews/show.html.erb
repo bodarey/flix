@@ -1,0 +1,14 @@
+<h3><%= @movie.title%></h3>
+<table>
+<tr><td> name:  <br/>    </td> </tr><tr> <td><%= @review.user.name%></td> </tr>
+<tr><td>number of stars: </td> </tr><tr> <td><%= @review.stars%></td> </tr>
+<tr><td> comment: <br/>  </td> </tr><tr> <td><%= @review.comment%></td> </tr>
+<tr><td> state:          </td> </tr><tr> <td><%= @review.state%></td> </tr>
+<tr><td>city:            </td> </tr><tr> <td><%= @review.city%></td> </tr>
+
+</table>
+
+<%= link_to  "Edit", edit_movie_review_path(@movie,@review),class: 'btn btn-success' %> | 
+<%= link_to 'Delete',movie_review_path(@movie,@review), method: 'delete',class: 'btn btn-success', data: {confirm: 'do you want to delete?'} %>
+<br/><br/>
+<%= link_to  'all reviews for the movie', movie_reviews_path(@movie) %>

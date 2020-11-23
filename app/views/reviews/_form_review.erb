@@ -1,0 +1,34 @@
+
+<div id='form'>
+<%= render 'shared/errors',object: @review  %>
+<p class='bold'><%= @movie.title %></p>
+
+<%= form_for([@movie,@review]) do |f| %>
+<table>
+
+
+
+  <tr><td><%= f.label :stars %></td></tr>
+
+  <tr><td><% Review::STARS.each do |star| %>
+    <span class="star">
+      <span>	<%= f.radio_button :stars, star %> <%= star.to_i %></span>
+    </span>
+  <% end %></td></tr>
+
+
+<tr><td><%= f.label :comment %></td></tr>
+<tr><td><%= f.text_area :comment, cols: 59,rows: 5, placeholder:'add your comment' %></td></tr>
+
+<tr><td><%= f.label :state %></td></tr>
+<tr><td><%= f.text_field :state %></td></tr>
+<tr><td><%= f.label :city %></td></tr>
+<tr><td><%= f.text_field :city %></td></tr>
+
+<tr><td>&nbsp;</td></tr>
+<tr><td><%= f.submit %>&nbsp;&nbsp;<br/><br/><%= link_to("Cancel",movie_path(@movie),class: 'btn btn-sm btn-light') %> </td></tr>
+</table>
+<br/>
+	<% end %>
+	<br/><br/>
+</div>

@@ -1,0 +1,33 @@
+
+
+
+  <div   class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
+      <a class="<%= (current_page?(root_path) or current_page?(movies_path) )? 'nav-link active' : 'nav-link' %> "   id="v-pills-home-tab"  href="<%= "#{movies_path}" %>" role="tab" aria-controls="v-pills-home" aria-selected="true">Released</a>
+
+
+       <a class="<%= current_page?(filtered_movies_path(:hits))  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"   href="<%= "#{filtered_movies_path(:hits)}" %>" role="tab" aria-controls="v-pills-profile" aria-selected="false">Hits</a>
+     
+		 <a class="<%= current_page?(filtered_movies_path(:flops))  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"   href="<%= "#{filtered_movies_path(:flops)}" %>" role="tab" aria-controls="v-pills-profile" aria-selected="false">Flops</a>
+		 
+		<a class="<%= current_page?(filtered_movies_path(:upcoming))  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"   href="<%= "#{filtered_movies_path(:upcoming)}" %>" role="tab" aria-controls="v-pills-profile" aria-selected="false">Upcoming</a>
+
+		<a class="<%= current_page?(filtered_movies_path(:recent))  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"   href="<%= "#{filtered_movies_path(:recent)}" %>" role="tab" aria-controls="v-pills-profile" aria-selected="false">Recent</a>
+
+
+
+
+
+
+      <% if current_user_admin? %>
+      <a class="<%= current_page?(new_movie_path)  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"  href="<%= "#{new_movie_path}" %>"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Add New Movie</a>
+
+      <a class="<%= current_page?(genres_path)  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab"  href="<%= "#{genres_path}" %>"  role="tab" aria-controls="v-pills-profile" aria-selected="false">All Genres</a>
+
+       <a class="<%= current_page?(new_genre_path)  ? 'nav-link active' : 'nav-link' %> "  id="v-pills-profile-tab" href="<%= "#{new_genre_path}" %>"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Add New Genre</a>
+
+    <% end %>
+
+    <%= content_for(:side) %>
+    </div>
+
+    
