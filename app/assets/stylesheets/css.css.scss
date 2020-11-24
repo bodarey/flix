@@ -2,6 +2,8 @@
 
 body 
 {
+  
+  background-color: #f0ede9;
 
  // background: url(../images/header_bg.png) repeat-x;
 //background-position: fixed;
@@ -9,6 +11,8 @@ body
 //background-color: #c9cdd0;
 
 }
+
+
 .day1 {
 //background-image: url(day11.jpg) ;
   
@@ -31,9 +35,10 @@ body
 
 }
 #form{
+  background: url(backh.jpg) repeat-x;
+  width: 600px;
 	padding-left: 10px;
-	//width: 650px;
-//	background-color: #d1dcf0;
+	//width: 650px
 }
 .flash {
   color: $primary-text-color;
